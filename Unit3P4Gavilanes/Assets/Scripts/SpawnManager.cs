@@ -9,12 +9,6 @@ public class SpawnManager : MonoBehaviour
     private Vector3 spawnPos = new Vector3(25, 0, 0);
     private float startDelay, repeatRate;
 
-    //public GameObject obstaclePrefab;
-    //private Vector3 spawnPos = new Vector3(25, 0, 0);
-    
-    //private float startDelay = 2;
-    //private float repeatRate = 2;
-
     private PlayerController playerControllerScript;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +26,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
-        obstacleIndex = Random.Range(0,3);
+        obstacleIndex = Random.Range(0,4);
 
         if (playerControllerScript.gameOver == false)
         {

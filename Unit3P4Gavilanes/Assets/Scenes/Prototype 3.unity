@@ -122,6 +122,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &56870506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56870508}
+  - component: {fileID: 56870507}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &56870507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56870506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea33085f8805bd479389dffca4deb8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!4 &56870508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56870506}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +483,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -732,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e090689ceeddb41b0fa080cc1e3580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 650
+  jumpForce: 700
   gravityModifier: 3
   isOnGround: 1
   gameOver: 0
@@ -740,6 +785,9 @@ MonoBehaviour:
   dirtParticle: {fileID: 390636938}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
+  doubleJumpUsed: 0
+  doubleJumpForce: 400
+  doubleSpeed: 0
 --- !u!4 &1191208143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400046, guid: f8abbdd178867d2419ba9feb6ff2cba0, type: 3}
@@ -915,10 +963,10 @@ PrefabInstance:
       addedObject: {fileID: 1191208137}
     - targetCorrespondingSourceObject: {fileID: 100046, guid: f8abbdd178867d2419ba9feb6ff2cba0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1191208141}
+      addedObject: {fileID: 1191208144}
     - targetCorrespondingSourceObject: {fileID: 100046, guid: f8abbdd178867d2419ba9feb6ff2cba0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1191208144}
+      addedObject: {fileID: 1191208141}
   m_SourcePrefab: {fileID: 100100000, guid: f8abbdd178867d2419ba9feb6ff2cba0, type: 3}
 --- !u!1001 &1935983039
 PrefabInstance:
@@ -1249,6 +1297,10 @@ PrefabInstance:
       value: Rock
       objectReference: {fileID: 0}
     - target: {fileID: 5311382089914733725, guid: 8ca97c54e0540704a99693667cfc9861, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311382089914733725, guid: 8ca97c54e0540704a99693667cfc9861, type: 3}
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
@@ -1353,6 +1405,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8885938676362786069, guid: 5f35fc2cbcb437f4f8052e6175df91d4, type: 3}
+      propertyPath: m_Mass
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1372,3 +1428,4 @@ SceneRoots:
   - {fileID: 2236800291729553319}
   - {fileID: 1724647884221534995}
   - {fileID: 4009732995774003410}
+  - {fileID: 56870508}
