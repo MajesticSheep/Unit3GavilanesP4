@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //The code below is for the player to be able to jump
     private Rigidbody steveRb;
     public float jumpForce;
     public float gravityModifier;
     public bool isOnGround = true;
-
+    //The code below is for the animation of the player
     public bool gameOver = false;
     private Animator playerAnim;
-
+    //The code below is for the particle effects for the player
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
-
+    //The code below is for the sound effects for the player
     public AudioClip jumpSound;
     public AudioClip crashSound;
-
+    //The code below is for the player to access the sound effects when moving
     private AudioSource playerAudio;
-
+    //The code below is for the double jump ability for the player
     public bool doubleJumpUsed = false;
     public float doubleJumpForce;
-
+    //The code below is for the dash effect for the player
     public bool doubleSpeed = false;
     // Start is called before the first frame update
     void Start()
