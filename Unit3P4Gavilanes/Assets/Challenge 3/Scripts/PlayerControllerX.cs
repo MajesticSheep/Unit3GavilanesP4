@@ -17,7 +17,8 @@ public class PlayerControllerX : MonoBehaviour
     public AudioClip moneySound;
     public AudioClip explodeSound;
 
-    private float bottomBound = 2;
+    private float topBound = 15f;
+    public bool isTopLimit = false;
 
 
 
@@ -37,12 +38,22 @@ public class PlayerControllerX : MonoBehaviour
     void Update()
     {
         // While space is pressed and player is low enough, float up
-        if (Input.GetKey(KeyCode.Space) && !gameOver)
+        if (Input.GetKey(KeyCode.Space) && !gameOver && !gameOver && isTopLimit == false)
         {
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
         }
+        else if (transform.position.y > topBound)
+        {
+            playerRb.AddForce(Vector3.down * 0.5f, ForceMode.Impulse);
+            isTopLimit = true;
+        }
+        else if (transform.position.y < topBound)
+        {
+            isTopLimit = false;
+        }
 
-        if (transform.position.x > bottomBound && gameObject.CompareTag("Player"))
+
+        if (transform.position.y > topBound && gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }

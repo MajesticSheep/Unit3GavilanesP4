@@ -15,7 +15,7 @@ public class SpawnManagerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnObject", spawnDelay, spawnInterval);
+        InvokeRepeating("SpawnObjects", spawnDelay, spawnInterval);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerControllerX>();
     }
 
@@ -27,7 +27,7 @@ public class SpawnManagerX : MonoBehaviour
         int index = Random.Range(0, objectPrefabs.Length);
 
         // If game is still active, spawn new object
-        if (!playerControllerScript.gameOver == false)
+        if (playerControllerScript.gameOver == false)
         {
             Instantiate(objectPrefabs[index], spawnLocation, objectPrefabs[index].transform.rotation);
         }
