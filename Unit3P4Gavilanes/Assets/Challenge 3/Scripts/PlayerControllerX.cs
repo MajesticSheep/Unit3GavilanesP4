@@ -16,9 +16,10 @@ public class PlayerControllerX : MonoBehaviour
     private AudioSource playerAudio;
     public AudioClip moneySound;
     public AudioClip explodeSound;
+    public AudioClip bounceSound;
 
-    private float topBound = 15f;
-    public bool isTopLimit = false;
+    private float bottomBound = -1;
+    //public bool isTopLimit = false;
 
 
 
@@ -38,22 +39,22 @@ public class PlayerControllerX : MonoBehaviour
     void Update()
     {
         // While space is pressed and player is low enough, float up
-        if (Input.GetKey(KeyCode.Space) && !gameOver && !gameOver && isTopLimit == false)
+        if (Input.GetKey(KeyCode.Space) && !gameOver)
         {
             playerRb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
         }
-        else if (transform.position.y > topBound)
+        //else if (transform.position.y > topBound)
         {
-            playerRb.AddForce(Vector3.down * 0.5f, ForceMode.Impulse);
-            isTopLimit = true;
+            //playerRb.AddForce(Vector3.down * 0.5f, ForceMode.Impulse);
+            //isTopLimit = true;
         }
-        else if (transform.position.y < topBound)
+        //else if (transform.position.y < topBound)
         {
-            isTopLimit = false;
+            //isTopLimit = false;
         }
 
 
-        if (transform.position.y > topBound && gameObject.CompareTag("Player"))
+        if (transform.position.y < bottomBound && gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
@@ -78,8 +79,15 @@ public class PlayerControllerX : MonoBehaviour
             playerAudio.PlayOneShot(moneySound, 1.0f);
             Destroy(other.gameObject);
 
-        }
+            
 
+        }
+        
+        else if (other.gameObject.CompareTag("Ground") && !gameOver)
+        {
+            playerRb.AddForce(Vector3.up * 7, ForceMode.Impulse);
+            playerAudio.PlayOneShot(bounceSound, 1.0f);
+        }
     }
 
 }
